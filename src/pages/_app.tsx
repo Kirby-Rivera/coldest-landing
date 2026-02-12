@@ -1,6 +1,10 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Outfit } from "next/font/google";
+import gsap from "gsap";
+import { ScrollTrigger, SplitText } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -10,7 +14,7 @@ const outfit = Outfit({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={outfit.variable}>
+    <main className={outfit.className}>
       <Component {...pageProps} />
     </main>
   );
