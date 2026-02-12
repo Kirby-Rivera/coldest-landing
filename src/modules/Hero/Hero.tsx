@@ -1,5 +1,5 @@
 import useAnimateHero from "./useAnimateHero";
-import styles from "./Hero.module.css";
+import styles from "./Hero.module.scss";
 
 const Hero = () => {
   const {
@@ -55,12 +55,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <h1
-            ref={logoRef}
-            className="font-black text-9xl tracking-tighter m-0 translate-x-[-4px]"
-          >
-            COLDEST
-          </h1>
+          <h1 ref={logoRef} className="m-0">COLDEST</h1>
         </div>
       </div>
     </section>

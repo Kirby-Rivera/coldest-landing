@@ -1,0 +1,115 @@
+// Variables
+$color-white: #ffffff;
+$color-dark: #141414;
+$opacity-background: 0.7;
+$nav-gap: 5.5rem;
+$content-width: 70vw;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin position-full-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Main Styles
+.hero-main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  @include flex-center;
+  overflow: hidden;
+
+  h1 {
+    font-weight: 900;
+    font-size: 128px;
+    letter-spacing: -0.1em;
+    transform: translateX(-8px);
+  }
+
+  .hero-background {
+    @include position-full-cover;
+    z-index: 1;
+    opacity: $opacity-background;
+    transform: scale(1);
+
+    img {
+      @include image-cover;
+    }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    background: rgba($color-white, 1);
+    color: $color-dark;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 40%;
+  }
+
+  .hero-navs {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    nav {
+      padding: 1rem 2rem;
+      display: flex;
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+        gap: $nav-gap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .content-grid {
+    width: $content-width;
+    display: flex;
+    justify-content: space-between; // or flex-end, center depending on your design
+    align-items: flex-end;
+    gap: 2rem; // adds space between left and right content
+    flex: 1; // allows it to grow and take available space
+    min-height: 0; // ensures flex shrinking works properly
+    height: 80vh;
+    padding-bottom: 90px;
+
+    .content-left {
+      display: flex;
+      align-items: flex-end;
+      flex-shrink: 0; // prevents shrinking if needed
+    }
+
+    .content-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      flex: 1; // allows it to take remaining space
+    }
+  }
+}

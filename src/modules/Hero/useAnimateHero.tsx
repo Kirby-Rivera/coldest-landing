@@ -10,13 +10,6 @@ const useAnimateHero = () => {
   const contentRef = useRef<HTMLDivElement>(null); // Add this ref for the lorem ipsum content
 
   useGSAP(() => {
-    // Set initial state - hide content
-    gsap.set(contentRef.current, {
-      opacity: 0,
-      y: 50,
-      display: "none",
-    });
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: heroMainRef.current,
@@ -52,15 +45,22 @@ const useAnimateHero = () => {
     );
 
     // Show content after animations finish
-    tl.to(
+    tl.fromTo(
       contentRef.current,
       {
-        display: "block",
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
+        opacity: 0,
+        visibility: "hidden",
+        y: 50,
+        display: "none",
       },
-      1 // Starts after 1 second (after previous animations)
+      {
+        display: "flex", // Changed to flex to match your CSS
+        y: 0, // Slide to original position
+        visibility: "visible",
+        opacity: 1,
+        duration: 2,
+      },
+      1
     );
   }, []);
 
