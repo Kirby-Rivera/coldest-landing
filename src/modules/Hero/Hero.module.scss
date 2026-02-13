@@ -38,13 +38,12 @@ $content-width: 70vw;
     font-weight: 900;
     font-size: 128px;
     letter-spacing: -0.1em;
-    transform: translateX(-8px);
+    transform: translate(-8px, 50px);
   }
 
   .hero-background {
     @include position-full-cover;
     z-index: 1;
-    opacity: $opacity-background;
     transform: scale(1);
 
     img {
@@ -68,7 +67,7 @@ $content-width: 70vw;
     display: flex;
     justify-content: space-between;
     width: 100%;
-
+    
     nav {
       padding: 1rem 2rem;
       display: flex;

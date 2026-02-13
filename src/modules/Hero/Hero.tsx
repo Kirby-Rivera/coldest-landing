@@ -32,13 +32,12 @@ const Hero = () => {
             </nav>
           </div>
 
-          {/* Content that appears after animation */}
           <div ref={contentRef} className={styles["content-grid"]}>
             <div className={styles["content-left"]}>
               <p className="text-xl font-medium">Too Cool for Weird Kids.</p>
             </div>
             <div className={styles["content-right"]}>
-              <p className="text-4xl mb-6  max-w-sm">
+              <p className="text-4xl mb-6  max-w-sm test">
                 Lorem ipsum dolor sit amet, consectetur{" "}
                 <span className="bg-black text-white px-1">
                   adipiscing elit.
@@ -55,7 +54,9 @@ const Hero = () => {
             </div>
           </div>
 
-          <h1 ref={logoRef} className="m-0">COLDEST</h1>
+          <h1 ref={logoRef}>
+            COLDEST
+          </h1>
         </div>
       </div>
     </section>

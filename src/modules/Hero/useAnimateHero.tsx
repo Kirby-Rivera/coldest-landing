@@ -1,15 +1,26 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import SplitText from "gsap/src/SplitText";
 
 const useAnimateHero = () => {
   const heroMainRef = useRef<HTMLDivElement>(null);
   const heroContentRef = useRef<HTMLDivElement>(null);
   const heroBackgroundRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLHeadingElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null); // Add this ref for the lorem ipsum content
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+    const split = new SplitText(logoRef.current, { type: "chars" });
+
+    gsap.from(split.chars, {
+      opacity: 0,
+      x: -50,  // Changed from y to x, negative for left
+      stagger: 0.05,
+      duration: 0.8,
+      ease: "power2.out"
+    });
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: heroMainRef.current,
@@ -20,7 +31,6 @@ const useAnimateHero = () => {
       },
     });
 
-    // Animate the content container to become navbar-sized
     tl.to(
       heroContentRef.current,
       {
@@ -32,19 +42,17 @@ const useAnimateHero = () => {
       0
     );
 
-    // Animate the logo to become small
     tl.to(
       logoRef.current,
       {
         fontSize: "2rem",
-        y: "-95.5vh",
+        y: "-94.5vh",
         marginTop: 0,
         duration: 1,
       },
       0
     );
 
-    // Show content after animations finish
     tl.fromTo(
       contentRef.current,
       {
@@ -54,11 +62,11 @@ const useAnimateHero = () => {
         display: "none",
       },
       {
-        display: "flex", // Changed to flex to match your CSS
-        y: 0, // Slide to original position
+        display: "flex",
+        y: 0,
         visibility: "visible",
         opacity: 1,
-        duration: 2,
+        duration: 1,
       },
       1
     );
@@ -69,7 +77,7 @@ const useAnimateHero = () => {
     heroContentRef,
     heroBackgroundRef,
     logoRef,
-    contentRef, // Export the new ref
+    contentRef,
   };
 };
 

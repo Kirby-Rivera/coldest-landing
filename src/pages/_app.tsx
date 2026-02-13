@@ -4,7 +4,8 @@ import { Outfit } from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
 
 const outfit = Outfit({
   subsets: ["latin"],
