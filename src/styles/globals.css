@@ -25,3 +25,26 @@ body {
   color: var(--foreground);
   font-family: var(--font-outfit), Arial, Helvetica, sans-serif;
 }
+
+.block-line-wrapper {
+  position: relative;
+  width: max-content;
+  text-align: right;
+  display: block;
+}
+
+.block-line {
+  position: relative;
+  display: block;
+}
+
+.block-revealer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 101%;
+  height: 101%;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 10;
+}

@@ -38,7 +38,8 @@ $content-width: 70vw;
     font-weight: 900;
     font-size: 128px;
     letter-spacing: -0.1em;
-    transform: translate(-8px, 50px);
+    transform: translate(-8px, 30px);
+    margin: 0 20px;
   }
 
   .hero-background {
@@ -67,14 +68,14 @@ $content-width: 70vw;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    
+
     nav {
       padding: 1rem 2rem;
       display: flex;
 
       ul {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         gap: $nav-gap;
         list-style: none;
         margin: 0;
@@ -96,7 +97,7 @@ $content-width: 70vw;
     flex: 1; // allows it to grow and take available space
     min-height: 0; // ensures flex shrinking works properly
     height: 80vh;
-    padding-bottom: 90px;
+    padding-bottom: 30px;
 
     .content-left {
       display: flex;

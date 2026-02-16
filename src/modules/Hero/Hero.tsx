@@ -1,5 +1,8 @@
 import useAnimateHero from "./useAnimateHero";
 import styles from "./Hero.module.scss";
+import clsx from "clsx";
+import Copy from "@/components/BlockSlide";
+import ShuffleRoulette from "@/components/ShuffleRoulette";
 
 const Hero = () => {
   const {
@@ -20,43 +23,47 @@ const Hero = () => {
           <div className={styles["hero-navs"]}>
             <nav>
               <ul>
-                <li>Home</li>
-                <li>Product</li>
+                <ShuffleRoulette>Home</ShuffleRoulette>
+                <ShuffleRoulette>Product</ShuffleRoulette>
               </ul>
             </nav>
             <nav>
               <ul>
-                <li>History</li>
-                <li>Contact</li>
+                <ShuffleRoulette>About</ShuffleRoulette>
+                <ShuffleRoulette>Contact</ShuffleRoulette>
               </ul>
             </nav>
           </div>
 
           <div ref={contentRef} className={styles["content-grid"]}>
             <div className={styles["content-left"]}>
-              <p className="text-xl font-medium">Too Cool for Weird Kids.</p>
+              <Copy delay={2} blockColor="#040730">
+                <p className="text-xl font-medium tagline">
+                  Too Cool for Weird Kids.
+                </p>
+              </Copy>
             </div>
-            <div className={styles["content-right"]}>
-              <p className="text-4xl mb-6  max-w-sm test">
-                Lorem ipsum dolor sit amet, consectetur{" "}
-                <span className="bg-black text-white px-1">
-                  adipiscing elit.
-                </span>{" "}
-                Morbi consequat ex ac.
-              </p>
-              <p className="text-4xl max-w-sm">
-                Lorem ipsum dolor sit amet, consectetur{" "}
-                <span className="bg-black text-white px-1">
-                  adipiscing elit.
-                </span>{" "}
-                Maecenas id semper urna, at varius turpis. Proin id.
-              </p>
-            </div>
+            <Copy blockColor="#040730">
+              <div className={clsx(styles["content-right"], "main-tagline")}>
+                <p className="text-4xl max-w-sm test text-right mb-6">
+                  Lorem ipsum dolor sit amet, consectetur{" "}
+                  <span className="bg-black text-white px-1">
+                    adipiscing elit.
+                  </span>{" "}
+                  Morbi consequat ex ac.
+                </p>
+                <p className="text-4xl max-w-sm text-right">
+                  Lorem ipsum dolor sit amet, consectetur{" "}
+                  <span className="bg-black text-white px-1">
+                    adipiscing elit.
+                  </span>{" "}
+                  Maecenas id semper urna, at varius turpis. Proin id.
+                </p>
+              </div>
+            </Copy>
           </div>
 
-          <h1 ref={logoRef}>
-            COLDEST
-          </h1>
+          <h1 ref={logoRef}>COLDEST</h1>
         </div>
       </div>
     </section>
